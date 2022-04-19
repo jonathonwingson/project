@@ -2,17 +2,29 @@ import click
 from flask import Flask
 from flask.cli import with_appcontext, AppGroup
 
-from App.database import create_db
+from App.database import create_db, db
 from App.main import app, migrate
 from App.controllers import ( create_user, get_all_users_json, get_all_users )
 
 # This commands file allow you to create convenient CLI commands
 # for testing controllers
 
+from App.models import Job
+import csv
+
 # This command creates and initializes the database
-@app.cli.command("init", help="Creates and initializes the database")
+@app.cli.command("init")
 def initialize():
     create_db(app)
+    with open('./job.csv') as file:
+        jobs = csv.DictReader(file)
+
+        for job in jobs:
+            row = Job(Job_ID = job['Job_ID'], Name = job['Name'], Company = job['Company'], Contact_Info = job['Contact_Info'], Degree_Experience = job['Degree/Experience'], Requirements = job['Requirements'])
+            print(row.toDict())
+            db.session.add(row)
+        db.session.commit()
+
     print('database intialized')
 
 '''
@@ -49,9 +61,3 @@ app.cli.add_command(user_cli) # add the group to the cli
 '''
 Generic Commands
 '''
-
-
-@app.cli.command("init")
-def initialize():
-    create_db(app)
-    print('database intialized')
