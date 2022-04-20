@@ -15,17 +15,32 @@
   <body>
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo" style="margin-left: 100px;" >{% block page %}{% endblock %}</a>
         
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/jobs">Jobs</a></li>
-          <li><a href="/users">Active Users</a></li>
-          <li><a href="/login">Login/SignUp</a></li>
-        </ul>
+        <div style="margin-left: 2em; margin-right: 2em;">
+          <a href="/" class="brand-logo"  >{% block page %}{% endblock %}</a>
+        </div>
+        
+        <div>
+          
+          
+
+        </div>
+
+        <div style="margin-right: 2em; margin-right: 2em;">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/users">Active Users</a></li>
+            <li><a href="/login">Login/SignUp</a></li>
+          </ul>
+        </div>
+        
+
+        
+
       </div>
     </nav>
 
-
+    
     
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -41,8 +56,78 @@
     {% endif %}
     {% endwith %}
 
+
+    <body bgcolor="white">
+
+      <style>
+        .bold{
+               font-weight: bold;
+         }
+
+         #section1::before{
+           background-image: url("https://www.seekpng.com/png/full/31-311126_business-partnership-header-banner-bg-outsourcing-partners.png");
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: 1000px;
+           content: "";
+           position: absolute;
+           width:100%;
+           height:120%;
+           z-index: -2;
+           opacity: 1;
+         }
+         
+      </style>
+
+</head>
+
+<body>
+  <section id="section1">
+
+
+    
+      
+   
+
+
     <div class="container" id="content">{% block content %}{% endblock %}</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
+<!--
+  <style>
+     
+    .footer {
+      
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: lightblue;
+      color: black;
+      text-align: center;
+    }
+    </style>
+    <style>
+    .nets {
+     
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: lightblue;
+      color: black;
+      text-align: center;
+    }
+    </style>
+    <div class = "nets">
+      
+    <div class="footer">
+      <p><strong>Group members:</strong>
+      <ul>
+        <li>Xuan Mauge</li>
+        <li>Avin Heeralal</li>
+        <li>Jonathan Wingson</li>
+        <li>Marc-Anthony Hosten</li></ul></p>
+    </div>
+    -->
+
 </html>
