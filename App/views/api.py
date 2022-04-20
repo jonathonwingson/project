@@ -26,6 +26,3 @@ def search():
   
 
 
-@api_views.route('/login')
-def index():
-  return render_template('login.html')
