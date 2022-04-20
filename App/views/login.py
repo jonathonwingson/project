@@ -26,10 +26,8 @@ def loginAction():
       user = User.query.filter_by(username = data['username']).first()
       if user and user.check_password(data['password']): # check credentials
         flash('Logged in successfully.') # send message to next page
-        login_user(user) # login the user
-        return render_template('jobs.html') # redirect to main page if login successful
+        #login_user(user) # login the user
+        return render_template('jobs.html', jobs = Job.query.all()) # redirect to main page if login successful
   flash('Invalid credentials')
-  return render_template('login.html', form =form)
-
-
+  return render_template('login.html', form = form)
   
