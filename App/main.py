@@ -18,14 +18,16 @@ from App.views import (
     user_views,
     api_views,
     job_views,
-    login_views
+    login_views,
+    signup_views
 )
 
 views = [
     user_views,
     api_views,
     job_views,
-    login_views
+    login_views,
+    signup_views
 ]
 
 def add_views(app, views):
